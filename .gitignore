@@ -1,0 +1,11 @@
+# Ignore all __pycache__ folders
+**/__pycache__/
+*.client_env
+# Ignore .idea folder (IDE settings)
+.idea/
+.venv/
+**/ssl/
+logs/*
+.streamlit/
+.streamlit/config.toml
+.streamlit/secrets.toml
