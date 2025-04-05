@@ -62,6 +62,8 @@ def main():
         selected_collections = render_collection_selector()
         
         st.divider()
+
+
         
         # Emergency form
         form_data = render_emergency_form()

@@ -1,3 +1,4 @@
+import re
 import streamlit as st
 import requests
 from settings.config import settings
@@ -203,7 +204,7 @@ Your task is to generate a realistic emergency scenario based on a list of nearb
 {
     "scenario": "Title of the crisis scenario (e.g., Flash Flood in Marseille)",
     "location": "Name of affected location (city or region)",
-    "summary": "Brief overview of the situation",
+    "Scenario": "Brief overview of the situation",
     "steps": [
         {"step": 1, "title": "Step title", "description": "Detailed emergency response action"},
         ...
@@ -278,13 +279,35 @@ Respond only in JSON. No prose before or after.
         # print(claude_response.get('Content-Type'))
         claude_result = claude_response.json()
         print(claude_result)
-        
+        def clean_and_parse_json(llm_response_text: str):
+            import re
+
+            # Remove triple backticks and optional language tag
+            cleaned = llm_response_text.strip()
+            if cleaned.startswith("```json"):
+                cleaned = cleaned[len("```json"):].strip()
+            elif cleaned.startswith("```"):
+                cleaned = cleaned[3:].strip()
+
+            if cleaned.endswith("```"):
+                cleaned = cleaned[:-3].strip()
+
+            try:
+                return json.loads(cleaned)
+            except json.JSONDecodeError as e:
+                print("❌ JSON parsing failed:", e)
+                print("🧪 Cleaned text:", cleaned[:500])
+                return None
+
+
         # Extract the content from the Claude response
         llm_text = claude_result.get('choices', [{}])[0].get('message', {}).get('content','')
+
         
         # Try to parse as JSON
         try:
-            llm_response = json.loads(llm_text)
+            llm_response = clean_and_parse_json(llm_text)
+            # llm_response = json.loads(llm_text)
         except json.JSONDecodeError:
             st.error("Claude response could not be parsed as JSON:")
             st.error(llm_text[:500])
