@@ -202,22 +202,17 @@ Your task is to generate a realistic emergency scenario based on a list of nearb
 🔹 Your output MUST be in strict JSON format with the following structure:
 
 {
-    "scenario": "Title of the crisis scenario (e.g., Flash Flood in Marseille)",
-    "location": "Name of affected location (city or region)",
-    "Scenario": "Brief overview of the situation",
-    "steps": [
-        {"step": 1, "title": "Step title", "description": "Detailed emergency response action"},
-        ...
-    ],
-    "checklist": [
-        "Item 1 to check or do",
-        "Item 2...",
-        ...
-    ],
-    "sources": [
-        {"title": "Source document or protocol", "relevance": "How this source applies to the current scenario"}
-    ]
-}
+            "scenario": "Brief summary of starting situation",
+            "steps": [
+                {"step": 1,
+"title": "Step title",
+"description": "Detailed instruction",
+"quiz": "one question with 4 possible answers",
+"answer":"correct answer",
+"sources":{"title": "Source document title", "relevance": "Relevance description"}},
+                …
+]
+        }
 
 🔹 Make sure to:
 

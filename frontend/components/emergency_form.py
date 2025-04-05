@@ -217,8 +217,6 @@ def render_emergency_form():
                 st.info("Aucun risque connu autour de cette position.")
 
         name = st.text_input("👤 Nom complet")
-        email = st.text_input("📧 Adresse e-mail")
-        age = st.number_input("🎂 Âge", min_value=0, max_value=120, step=1)
         family_status = st.selectbox("👪 Situation familiale", ["Célibataire", "En couple", "Marié(e)", "Divorcé(e)", "Veuf(ve)"])
         has_children = st.radio("👶 Avez-vous des enfants ?", ["Oui", "Non"], horizontal=True)
 
@@ -280,7 +278,6 @@ def render_emergency_form():
 
             return {
                 "name":name,
-                "age":age,
                 "family_status":family_status,
                 "has_children":has_children,
                 "geoloc": formatted,
