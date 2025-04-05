@@ -1,13 +1,3 @@
-# Import pysqlite3 first
-try:
-    import pysqlite3
-    version = getattr(pysqlite3, "__version__", "unknown")
-    print(f"Successfully imported pysqlite3 version: {version}")
-except ImportError as e:
-    print(f"Error importing pysqlite3: {e}")
-    import sys
-    print(f"Python path: {sys.path}")
-    print(f"Python executable: {sys.executable}")
 
 import uvicorn
 import argparse

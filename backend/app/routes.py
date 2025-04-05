@@ -40,29 +40,8 @@ def create_app(root_path: str = "") -> FastAPI:
 async def test():
         return {
             "status:": 200,
-            "message": test_service(),
-            "data": {
-                "title": "here is some example data",
-                "genAI_info": {
-                    "use_cases": ["Chatbot creation", "Content generation", "Data augmentation",
-                                  "Customer support automation"],
-                    "key_features": {
-                        "personalization": "Generates tailored responses based on user input and context.",
-                        "RAG_integration": "Utilizes external knowledge sources to enhance generated responses.",
-                        "no_code": "Allows non-technical users to build AI-powered chatbots easily.",
-                        "security": "Ensures data privacy with secure integrations and compliance."
-                    },
-                    "user_examples": [
-                        {"name": "John", "use_case": "E-commerce chatbot", "result": "Improved customer engagement by 25%"},
-                        {"name": "Sara", "use_case": "Content creation",
-                         "result": "Saved 10 hours weekly on content production"}
-                    ]
-                },
-                "additional_metrics": {
-                    "response_time_ms": 150,
-                    "api_version": "1.0.2"
-                }
-            }
+            "message": test_service()
         }
+
 
     # Registering routes

@@ -4,4 +4,6 @@ Requests==2.32.3
 streamlit==1.36.0
 uvicorn==0.30.1
 python-dotenv~=1.0.0
-pysqlite3
+geocoder
+streamlit-javascript
+# pysqlite3

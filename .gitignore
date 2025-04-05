@@ -9,3 +9,4 @@ logs/*
 .streamlit/
 .streamlit/config.toml
 .streamlit/secrets.toml
+venv
